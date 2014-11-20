@@ -7,6 +7,12 @@
     "gulp-jasmine": "^1.0.1",
     "gulp-plumber": "^0.6.6",
     "gulp-ruby-sass": "^0.7.1",
+    "jasmine-core": "^2.1.2",
+    "karma": "^0.12.25",
+    "karma-chrome-launcher": "^0.1.5",
+    "karma-coverage": "^0.2.6",
+    "karma-jasmine": "^0.3.0",
+    "karma-ng-html2js-preprocessor": "^0.1.2",
     "protractor": "^1.4.0"
   }
 }

@@ -19,7 +19,9 @@ gulp.task('concat', function() {
   return gulp.src([
     'vendor/assets/bower_components/angular/angular.js',
     'vendor/assets/bower_components/angular-route/angular-route.js',
-    'app/assets/javascripts/pspApp.module.js'])
+    'bower_components/angular-foundation/src/alert/alert.js',
+    'app/assets/javascripts/directives/loan_purpose_select.js',
+    'app/assets/javascripts/modules/psp_app.js'])
     .pipe(concat('app.js'))
     .pipe(gulp.dest('public/dist/js'));
 });
@@ -40,10 +42,10 @@ gulp.task('template-cache', function () {
 
 
 // jasmine
-gulp.task('jasmine', function () {
-  return gulp.src('spec/test.js')
-    .pipe(jasmine());
-});
+//gulp.task('jasmine', function () {
+//  return gulp.src('spec/test.js')
+//    .pipe(jasmine());
+//});
 
 // sass
 gulp.task("sass", function(){
