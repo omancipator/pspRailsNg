@@ -45,7 +45,7 @@ angular.module("loanPurposeSelectModule",['mm.foundation.alert'])
   .directive("loanPurposeSelect", function(){
     return{
       restrict: "E",
-      templateUrl: "app/assets/templates/directives/loan_purpose_select.html",
+      templateUrl: "directives/loan_purpose_select.html",
       controller: "LoanPurposeSelectController"
     }
   });

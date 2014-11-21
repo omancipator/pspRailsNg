@@ -23,7 +23,8 @@ module.exports = function(config) {
       "app/assets/javascripts/**/*.js",
     // templates
       "bower_components/angular-foundation/template/**/*.html",
-      "app/assets/templates/**/*.html"
+      //"app/assets/templates/**/*.html",
+      "app/assets/templates/directives/loan_purpose_select.html"
     ],
 
 
@@ -36,12 +37,26 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'app/assets/javascripts/**/*.js': ['coverage'],
-      'app/assets/templates/**/*.html': ['ng-html2js']
+      '**/*.html': ['ng-html2js']
     },
 
 
     ngHtml2JsPreprocessor: {
-      stripPrefix: "app/assets/"
+      //  use this function to normalize template paths for inclusion into tests
+      cacheIdFromPath : function(filepath) {
+        //prosper template location
+        if( filepath.indexOf("app/assets/templates") != -1 ){
+          return filepath.substr(filepath.indexOf("app/assets/templates")+21);
+        }
+        // angular-foundation templates
+        else if( filepath.indexOf("bower_components/angular-foundation/") != -1 ){
+          return filepath.substr(filepath.indexOf("bower_components/angular-foundation/")+36);
+        }
+        else{
+          return filepath;
+        }
+      },
+      moduleName: "karma-templates"
     },
 
     // test results reporter to use
@@ -60,7 +75,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DEBUG,
 
 
     // enable / disable watching file and executing tests whenever any file changes

@@ -1,6 +1,6 @@
 describe("loanPurposeSelectModule", function(){
   var $rootScope, $compile, $controller, scope
-  beforeEach( module("loanPurposeSelectModule") );
+  beforeEach( module("loanPurposeSelectModule", "karma-templates") );
 
 
   beforeEach(inject(function(_$rootScope_, _$compile_, _$controller_){
